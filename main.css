@@ -1,0 +1,113 @@
+body {
+  background-color: rgb(41, 41, 41);
+  color: white;
+}
+
+.main-heading {
+  margin-bottom: 20px;
+}
+
+.sub-heading {
+  font-size: 30px;
+  margin-top: 0px;
+}
+
+.git-description-content {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  line-height: 20px;
+}
+
+.basic-commands {
+  padding-left: 25px;
+  margin-bottom: 0px;
+}
+
+.everyday-cmds-div {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 25px;
+  margin-top: 0px;
+  color: black;
+  padding-bottom: 30px;
+  border-bottom: 5px solid white;
+}
+
+.commands-grid-heading,
+.description-grid-heading {
+  border: 1px solid;
+  text-align: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background-color: whitesmoke;
+  font-weight: bold;
+}
+
+.commands-div,
+.description-div {
+  border: 1px solid;
+  padding-left: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: medium;
+  background-color: whitesmoke;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+  align-items: center;
+}
+
+.home-button {
+  cursor: pointer;
+}
+
+.features-description-heading {
+  margin-bottom: 8px;
+}
+
+.features-description-point {
+  margin-top: 6px;
+  margin-bottom: 0px;
+}
+
+.features-description-subpoint {
+  margin-top: 4px;
+  margin-bottom: 0px;
+}
+
+/* hands-on.html */
+#terminal {
+  background: black;
+  color: white;
+  font-family: monospace;
+  padding: 10px;
+  border-radius: 5px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+#output {
+  margin-bottom: 5px;
+}
+
+#input {
+  display: flex;
+  align-items: center;
+}
+
+#input span {
+  margin-right: 5px;
+}
+
+#command {
+  background: black;
+  border: none;
+  color: white;
+  flex: 1;
+}
+
+#command:focus {
+  outline: none;
+}

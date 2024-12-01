@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    hands on
+  </title>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" />
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+  <script>
+    const commands = {
+      "home": function (term) {
+        term.echo("Navigating to home page...");
+        window.location.href = "main.html";
+      },
+      "about git": function (term) {
+        term.echo("Navigating to About Git page...");
+        window.location.href = "about-git.html";
+      },
+      "basic commands": function (term) {
+        term.echo("Navigating to Basic Commands page...");
+        window.location.href = "basic-commands.html";
+      },
+      "ask a query": function (term) {
+        term.echo("Coming soon...");
+      },
+      "about learningit": function (term) {
+        term.echo("Navigating to About LearninGit page...");
+        window.location.href = "about-learninGit.html";
+      },
+      "hands on": function (term) {
+        term.echo("Navigating to About LearninGit page...");
+        window.location.href = "hands-on.html";
+      }
+    };
+
+    // Initialize terminal
+    $('body').terminal(function (input, term) {
+      const command = input.trim().toLowerCase(); // Normalize input
+      if (commands[command]) {
+        commands[command](term); // Execute matched command
+      } else {
+        term.echo(`Command "${input}" not recognized.`);
+      }
+    }, {
+      greetings: 'LearninGit - Master Git, one command at a time.\n\n'
+        + '\nCommands to enter:\n'
+        + '1. home\n'
+        + '2. about git\n'
+        + '3. basic commands\n'
+        + '4. ask a query\n'
+        + '5. hands on\n',
+      prompt: '> '
+    });
+
+  </script>
+</body>
+
+</html>

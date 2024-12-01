@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    About Git
+  </title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" />
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body style="padding-top: 20px;">
+  <div class="header">
+    <h3 class="basic-commands" style="text-decoration: underline;">Basic Everyday Commands
+    </h3>
+    <p class="home-button">Home</p>
+  </div>
+  <div class="everyday-cmds-div">
+    <div class="commands-grid-heading">Command</div>
+    <div class="description-grid-heading">Description</div>
+    <div class="commands-div">git init</div>
+    <div class="description-div">Initializes a new Git repository in the current directory.</div>
+    <div class="commands-div">git clone [url]</div>
+    <div class="description-div">Copies an existing repository (from a URL) to your local machine.</div>
+    <div class="commands-div">git add [file]</div>
+    <div class="description-div">Stages changes made to the specified file(s) for the next commit.</div>
+    <div class="commands-div">git commit -m "[message]"</div>
+    <div class="description-div">Records changes in the repository with a descriptive message.</div>
+    <div class="commands-div">git status</div>
+    <div class="description-div">Displays the current state of the repository, including staged, unstaged, and
+      untracked
+      files.</div>
+    <div class="commands-div">git log</div>
+    <div class="description-div">Shows the commit history of the repository.</div>
+    <div class="commands-div">git branch</div>
+    <div class="description-div">Lists, creates, renames, or deletes branches.</div>
+    <div class="commands-div">git checkout [branch]</div>
+    <div class="description-div">Switches to the specified branch or commit.</div>
+    <div class="commands-div">git merge [branch]</div>
+    <div class="description-div">Combines changes from the specified branch into the current branch.</div>
+    <div class="commands-div">git pull</div>
+    <div class="description-div">Fetches updates from a remote repository and merges them into the local branch.</div>
+    <div class="commands-div">git diff</div>
+    <div class="description-div">Shows the differences between your working directory and the staging area, or between
+      commits.</div>
+    <div class="commands-div">git rm [file]</div>
+    <div class="description-div">Removes a file from the working directory and stages the removal for the next commit.
+    </div>
+    <div class="commands-div">git stash</div>
+    <div class="description-div">Temporarily saves changes that are not ready to be committed and reverts the working
+      directory to a clean state.</div>
+    <div class="commands-div">git stash pop</div>
+    <div class="description-div">Applies the latest stashed changes and removes them from the stash.</div>
+    <div class="commands-div">git push [remote] [branch]</div>
+    <div class="description-div">Uploads commits from the local branch to the specified branch on the remote
+      repository.
+    </div>
+    <div class="commands-div">git fetch [remote]</div>
+    <div class="description-div">Downloads updates from the specified remote repository without merging them into your
+      local branch.</div>
+    <div class="commands-div">git rebase [branch]</div>
+    <div class="description-div">Moves the base of the current branch onto the specified branch, integrating its
+      commits.</div>
+    <div class="commands-div">git reset [file]</div>
+    <div class="description-div">Unstages a file from the staging area while keeping changes in the working directory.
+    </div>
+    <div class="commands-div">git tag [tagname]</div>
+    <div class="description-div">Creates a tag to mark a specific commit (commonly used for releases).</div>
+    <div class="commands-div">git show [commit/tag]</div>
+    <div class="description-div">Displays detailed information about a specific commit or tag.</div>
+
+    <script>
+      const home = document.querySelector(".home-button");
+      home.addEventListener("click", () => {
+        window.location.href = 'main.html';
+      });
+
+
+      const commands = {
+        "home": function (term) {
+          term.echo("Navigating to home page...");
+          window.location.href = "main.html";
+        },
+        "about git": function (term) {
+          term.echo("Navigating to About Git page...");
+          window.location.href = "about-git.html";
+        },
+        "basic commands": function (term) {
+          term.echo("Navigating to Basic Commands page...");
+          window.location.href = "basic-commands.html";
+        },
+        "ask a query": function (term) {
+          term.echo("Coming soon...");
+        },
+        "about learningit": function (term) {
+          term.echo("Navigating to About LearninGit page...");
+          window.location.href = "about-learninGit.html";
+        },
+        "hands on": function (term) {
+          term.echo("Navigating to About LearninGit page...");
+          window.location.href = "hands-on.html";
+        }
+      };
+
+      // Initialize terminal
+      $('body').terminal(function (input, term) {
+        const command = input.trim().toLowerCase(); // Normalize input
+        if (commands[command]) {
+          commands[command](term); // Execute matched command
+        } else {
+          term.echo(`Command "${input}" not recognized.`);
+        }
+      }, {
+        greetings: 'LearninGit - Master Git, one command at a time.\n\n'
+          + '\nCommands to enter:\n'
+          + '1. home\n'
+          + '2. about git\n'
+          + '3. basic commands\n'
+          + '4. ask a query\n'
+          + '5. hands on\n',
+        prompt: '> '
+      });
+
+    </script>
+</body>
+
+</html>

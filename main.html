@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    About Us
+  </title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" />
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div class="header">
+    <h1 class="main-heading"> LearninGit </h1>
+  </div>
+  <h2 class="sub-heading"> Master git, one command one at a time. </h2>
+
+  <p>LearninGit is an interactive platform designed to help learners, developers, and professionals master Git, the
+    world's most popular version control system.
+  </p>
+
+  <div class="features-div" style="padding-bottom: 30px; border-bottom: 5px solid white;">
+    <h4 class="features-description-heading">
+      Features We Provide:
+    </h4>
+    <p class="features-description-point">&#x2022;Beginner-Friendly Commands</p>
+    <p class="features-description-subpoint" style="margin-left: 25px;">Provides a list of basic and essential Git
+      commands, with explanations and examples.</p>
+    <p class="features-description-point">&#x2022;Interactive Exercises</p>
+    <p class="features-description-subpoint" style="margin-left: 25px;">Challenges or exercises to test user's
+      understanding of Git commands and workflows.
+    </p>
+    <p class="features-description-point">&#x2022;Terminal-Like Interface</p>
+    <p class="features-description-subpoint" style="margin-left: 25px;">A realistic, terminal-style interface that
+      mimics an actual Git command line.
+    <p class="features-description-point">&#x2022;Project-Based Learning</p>
+    <p class="features-description-subpoint" style="margin-left: 25px;">Hands-on projects where users can apply their
+      Git skills in real-world scenarios.
+    </p>
+  </div>
+
+  <script>
+    const commands = {
+      "about git": function (term) {
+        term.echo("Navigating to About Git page...");
+        window.location.href = "about-git.html";
+      },
+      "basic commands": function (term) {
+        term.echo("Navigating to Basic Commands page...");
+        window.location.href = "basic-commands.html";
+      },
+      "ask a query": function (term) {
+        term.echo("Coming soon...");
+      },
+      "about learningit": function (term) {
+        term.echo("Navigating to About LearninGit page...");
+        window.location.href = "about-learninGit.html";
+      },
+      "hands on": function (term) {
+        term.echo("Navigating to About LearninGit page...");
+        window.location.href = "hands-on.html";
+      }
+    };
+
+    // Initialize terminal
+    $('body').terminal(function (input, term) {
+      const command = input.trim().toLowerCase(); // Normalize input
+      if (commands[command]) {
+        commands[command](term); // Execute matched command
+      } else {
+        term.echo(`Command "${input}" not recognized.`);
+      }
+    }, {
+      greetings: 'Commands to enter:\n'
+        + '1. about git\n'
+        + '2. basic commands\n'
+        + '3. ask a query\n'
+        + '4. hands on\n',
+      prompt: '> '
+    });
+  </script>
+</body>
+
+</html>

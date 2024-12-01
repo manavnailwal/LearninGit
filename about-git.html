@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    LearninGit.com
+  </title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" />
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div class="header">
+    <h1 class="main-heading"> LearninGit </h1>
+    <p class="home-button">Home</p>
+  </div>
+  <h2 class="sub-heading"> Master git, one command one at a time. </h2>
+
+  <div class="git-description">
+    <h4 class="git-description-content" style="font-size: 20px;"> What is Git?</h4>
+    <p class="git-description-content">Git is a distributed version control system designed to track changes in files
+      and coordinate work among multiple
+      developers. It is particularly popular in software development and supports collaboration on projects of any size.
+      Here&apos;s an overview of its key features and uses:
+    </p>
+    <h5 class="git-description-content" style="font-size: 18px; margin-top: 20px;">
+      Key Features:
+    </h5>
+    <p class="git-description-content">Version Control:
+      Git keeps track of every change made to a project's files, allowing users to revert to previous versions if
+      needed.
+    </p>
+    <p class="git-description-content">Distributed System:
+      Each user has a complete local copy of the repository, making it fast and resilient to data loss.
+    </p>
+    <p class="git-description-content">
+      Branching and Merging:
+      Git makes it easy to create and manage branches, enabling experimentation and seamless integration of new
+      features.
+    </p>
+    <p class="git-description-content">
+      Collaboration:
+      Git facilitates teamwork by managing changes made by multiple contributors and resolving conflicts during
+      integration.
+    </p>
+    <p class="git-description-content">
+      Staging Area:
+      Changes can be selectively added to the staging area, providing greater control over what gets included in a
+      commit.
+    </p>
+
+    <h5 class="git-description-content" style="font-size: 18px; margin-top: 20px;">
+      Why Use Git?
+    </h5>
+    <p class="git-description-content">
+      For Developers: Ensures code integrity, simplifies collaboration, and supports workflows like Continuous
+      Integration (CI).
+    </p>
+    <p class="git-description-content">
+      For Non-Developers: Can be used to track changes in documents, design files, or any project that benefits from
+      versioning.
+    </p>
+    <h4 class="git-description-content">
+      Common Use Cases:
+    </h4>
+    <p class="git-description-content">
+      Tracking changes in software projects.
+    </p>
+    <p class="git-description-content">
+      Collaborating with teams via platforms like GitHub, GitLab, or Bitbucket.
+    </p>
+    <p class="git-description-content" style="padding-bottom: 20px; border-bottom: 5px solid white;">
+      Managing multiple versions of documents or configurations.
+    </p>
+  </div>
+
+  <script>
+    const home = document.querySelector(".home-button");
+    home.addEventListener("click", () => {
+      window.location.href = 'main.html';
+    });
+
+    const commands = {
+      "home": function (term) {
+        term.echo("Navigating to home page...");
+        window.location.href = "main.html";
+      },
+      "about git": function (term) {
+        term.echo("Navigating to About Git page...");
+        window.location.href = "about-git.html";
+      },
+      "basic commands": function (term) {
+        term.echo("Navigating to Basic Commands page...");
+        window.location.href = "basic-commands.html";
+      },
+      "ask a query": function (term) {
+        term.echo("Coming soon...");
+      },
+      "about learningit": function (term) {
+        term.echo("Navigating to About LearninGit page...");
+        window.location.href = "about-learninGit.html";
+      },
+      "hands on": function (term) {
+        term.echo("Navigating to About LearninGit page...");
+        window.location.href = "hands-on.html";
+      }
+    };
+
+    // Initialize terminal
+    $('body').terminal(function (input, term) {
+      const command = input.trim().toLowerCase(); // Normalize input
+      if (commands[command]) {
+        commands[command](term); // Execute matched command
+      } else {
+        term.echo(`Command "${input}" not recognized.`);
+      }
+    }, {
+      greetings: 'LearninGit - Master Git, one command at a time.\n\n'
+        + '\nCommands to enter:\n'
+        + '1. home\n'
+        + '2. about git\n'
+        + '3. basic commands\n'
+        + '4. ask a query\n'
+        + '5. hands on\n',
+      prompt: '> '
+    });
+
+  </script>
+
+</body>
+
+</html>
